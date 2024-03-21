@@ -59,7 +59,7 @@ def findObject(outputs,im):
         cv2.rectangle(im, (x, y), (x + w, y + h), (255, 0, 255), 2)
         cv2.putText(im, f'{classNames[classIds[i]].upper()} {int(confs[i]*100)}%', (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 0, 255), 2)
 
-    if found_bird or found_cat:
+    if found_bird:
         db.reference('bird/1').update({'maya': 'true'})
     else:
         db.reference('bird/1').update({'maya': 'false'})
